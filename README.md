@@ -1,0 +1,42 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ny_taxi
+    ports:
+      - "5433:5432"
+    volumes:
+      - vol-pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@pgadmin.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+    ports:
+      - "8080:80"
+    volumes:
+      - vol-pgadmin_data:/var/lib/pgadmin
+
+  pipeline:
+    build: .
+    container_name: pipeline
+    depends_on:
+      - db
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ny_taxi
+    volumes:
+      - "C:/Users/kefa/OneDrive - MOBILAE/Documents/Kenny/Data Eng/Data-Eng-Pipeline Projects/Docker-Terraform-project:/app"
+      - "C:/Users/kefa/OneDrive - MOBILAE/Documents/Kenny/Data Eng/Data-Eng-Pipeline Projects/Docker-Terraform-project/data:/app/data"
+
+volumes:
+  vol-pgdata:
+  vol-pgadmin_data:
