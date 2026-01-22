@@ -24,6 +24,8 @@ Docker-Terraform-project/
 
 ## Docker Setup
 
+![Project Diagram](Docker-terraform_project_image.png)
+
 ### Dockerfile
 
 ```dockerfile
