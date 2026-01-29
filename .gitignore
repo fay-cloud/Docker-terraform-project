@@ -1,9 +1,29 @@
-# Terraform local files
+# Local Terraform directories
 .terraform/
-*.tfstate
-*.tfstate.backup
-*.tfvars
-*.tfvars.json
+.terraform/*
 
-# Azure credentials / secrets
+# Terraform state files
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+terraform.tfvars
+terraform.tfvars.json
+
+# Sensitive Azure details
 azure_details.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Ignore editor-specific files
+*.swp
+*.vscode/
+*.idea/
