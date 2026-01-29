@@ -1,0 +1,9 @@
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+
+# Azure credentials / secrets
+azure_details.json
