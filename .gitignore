@@ -1,7 +1,7 @@
 # Local Terraform directories
 .terraform/
 .terraform/*
-
+*_override.tf
 # Terraform state files
 *.tfstate
 *.tfstate.*
